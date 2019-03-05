@@ -1,0 +1,79 @@
+\chapter{Einführung}
+Dies ist keine eigentliche Einführung zu einer wissenschaftlichen Arbeit, sondern es werden lediglich einige Dinge demonstriert, die man mit \LaTeX tun kann. Es wird \cite[]{goldbook} zitiert. Es wird ein Glossar-Eintrag (\texttt{acronymtype}) für den Begriff \textit{Kettenlängenverteilung} (\newglossaryentry{CLD}{name={CLD}, description={Kettenlängenverteilung}, type=\acronymtype}\gls{CLD}) bei der ersten Erwähnung des Begriffes innerhalb dieses Dokuments angelegt. Es gibt korrekte \enquote{Anführungszeichen}. Glossareinträge für die mathematischen Symbole \newglossaryentry{Rdot_n}{name={$R^{\bullet}_{n}$}, description={Konzentration der Radikalpolymere (aktive Ketten)}, type=symbolslist}\gls{Rdot_n} und \newglossaryentry{P_n}{name={$P_n$}, description={Konzentration der terminierten Polymere (terminierte Ketten)}, type=symbolslist}\gls{P_n} werden angelegt. Die Tabellen \cref{tab:reactionscheme} und \cref{tab:paramvalues} werden referenziert.
+\begin{equation}\label{eq:pbes_a} 
+    a + b = c
+\end{equation}
+\cref{eq:pbes_a} wird referenziert. Fußnoten sind möglich\footnote{Dies ist ein Beispiel für eine Fußnote.}.
+
+\begin{table}
+    \caption[Kurze Beschreibung der Tabelle]{Tabellenüberschrift (\texttt{caption}), die nur aussagt, was die Tabelle dargestellt (kurz und bündig, ohne ausschweifende Erklärungen)}
+\label{tab:reactionscheme}
+\centering
+\begin{tabular}{l l l}
+\toprule
+    Reaktion & Reaktionsgleichung & Rate \\
+\midrule
+    Initiation & $ I \stackrel{k_I}{\longrightarrow} 2 R_0^\bullet $ & $ r_I = k_I \eta I $ \\
+    Propagation & $ R^{\bullet}_{n}  + M \stackrel{k_p}{\longrightarrow} R^{\bullet}_{n+1} $ & $ r_p = k_p M R^{\bullet}_{n} $ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption[Werte einiger Simulationsparameter]{Werte einiger Simulationsparameter, Demonstration von \texttt{siunitx} und \texttt{booktabs}}
+\begin{tabular}{L r l || R r l }  
+\toprule
+    \multicolumn{3}{c}{ \text{Kinetische Parameter}} & \multicolumn{3}{c}{ \text{Anfangskonzentrationen}} \\
+\midrule
+    k_I & \num{1.2e-6} & \si{s^{-1}} & M_0 & \num{8.43} & \si{mol.L^{-1}} \\
+    k_p & \num{500} & \si{L.mol^{-1}.s^{-1}} & I_0 & \num{0.001} & \si{mol.L^{-1}} \\
+\bottomrule 
+\end{tabular}
+\label{tab:paramvalues}
+\end{table}
+
+\section{Eine Unterüberschrift mit label \texttt{sec:unter}}\label{sec:unter}
+\subsection{Eine Unterunterüberschrift mit \texttt{ssec:unterunter}}\label{ssec:unterunter}
+
+\section{Eine weitere Überschrift}
+Es wird auf \cref{sec:unter} und speziell auf \cref{ssec:unterunter} hingewiesen.
+\begin{figure}
+\centering
+\input{graphics/CombinationDrawing.eps_tex}
+    \caption[Eine \texttt{eps} Grafik]{Eine \texttt{eps} Grafik}
+\label{fig:CombinationDrawing}
+\end{figure}
+Referenz auf \cref{fig:CombinationDrawing}, wurde mit Inkscape erstellt und als \texttt{.eps} Vektorgrafik mit \texttt{.eps\_tex} exportiert, sodass der Text und die Symbole zum Stil des Dokumentes passen. Eine Aufzählung mit Klammern um die Zahlen sieht so aus:
+\begin{enumerate}[(1)]
+    \item eins 
+    \item \label{itm:my_item} zwei
+    \item drei
+\end{enumerate}
+
+\begin{sidewaysfigure}
+%\newgeometry{left=1.0cm, top=3.0cm,bottom=3cm}
+\thisfloatpagestyle{empty}% empty page style _only_ for this page
+\hspace*{-0.8cm}  
+    \makebox[\textwidth][c]{\includegraphics[width=1.\textwidth]{example-image-golden}}
+\vspace{10pt}
+\caption{UML Klassendiagramm}
+\label{fig:classdiagram}
+%\restoregeometry 
+\end{sidewaysfigure}
+
+\cref{itm:my_item} wird referenziert. \cref{fig:classdiagram} ist eine \texttt{sidewaysfigure}. Hier sind zwei Code-Auszüge (\texttt{lstinputlisting}), die mit Hilfe des Dateinamens, der \texttt{firstnumber} und der \texttt{linerange}  automatisch eingefügt werden können.  
+\lstinputlisting[language=Python, firstnumber=2, linerange={2-5}]{code/main.py}
+\lstinputlisting[language=Python, firstnumber=6, linerange={6-6}]{code/main.py}
+Der Funktionsaufruf \texttt{kr.Kr\_constants.import\_params()} wird richtig gesetzt. Es kann auch einfach so Code eingefügt werden (\texttt{lstlisting}): 
+
+\begin{lstlisting}[language=Python, numbers=none]
+N_vec, Ndot_vec, M = slice_manager.get_all_slices(solver.y)
+\end{lstlisting}
+
+Hier wird innerhalb einer Mathematik-Umgebung verwendet:
+
+\begin{align}
+                                                          & \texttt{[ 1.035  1.072  1.109  1.148 ... 966050.879  1000000.000 ]} \label{notrounded} \\
+    \stackrel{ \texttt{numpy.rint()} }{ \longrightarrow } & \texttt{[ 1.000  1.000  1.000  1.000 ... 966051.000  1000000.000 ]}
+\end{align}

@@ -1,0 +1,71 @@
+\documentclass[3pt,landscape,ngerman]{article}
+\usepackage{babel}
+\usepackage{fontspec}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{physics}
+\usepackage{geometry}
+\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm,paperwidth=297mm,paperheight=210mm}
+%A4 landscape: \geometry{top=1cm,left=1cm,right=1cm,bottom=1cm,paperwidth=210mm,paperheight=297mm}
+%A4 portrait: \geometry{top=1cm,left=1cm,right=1cm,bottom=1cm,paperwidth=210mm,paperheight=297mm}
+%\geometry{top=.1in,left=.1in,right=.1in,bottom=.1in,paperwidth=231mm,paperheight=327mm}
+%\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm,paperheight=231mm,paperwidth=327mm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\def\mathclap#1{\text{\hbox to 0pt{\hss$\mathsurround=0pt#1$\hss}}}
+\usepackage{tcolorbox}
+\usepackage{ragged2e}
+	\tcbset{colback=white!5!white,colframe=gray!20!white,boxrule=1pt,arc=0pt,left=1pt,right=1pt,top=1pt,bottom=1pt}
+
+% Turn off header and footer
+\pagestyle{empty}
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\small\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+				{\normalfont\scriptsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\scriptsize\bfseries}}
+\makeatother
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+% -----------------------------------------------------------------------
+
+\begin{document}
+
+%\raggedright
+\footnotesize
+\begin{multicols*}{5}
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{.1pt}
+\setlength{\postmulticols}{.1pt}
+\setlength{\multicolsep}{.1pt}
+\setlength{\columnsep}{.1pt}
+
+\tiny
+    Title(s) of book(s) condensed here
+\scriptsize
+\section{Section title of specific book}
+\subsection{Subsection}
+    {\tiny (Which book is refered to)}
+$$ \hat x = \sqrt{ \frac{\hbar}{2m \omega}} (a_x + a_x^\dag),\text{ } \hat p_x = -i \sqrt{ \frac{\hbar m \omega}{2}} (a_x - a_x^\dag) $$
+
+\end{multicols*}
+
+\end{document}

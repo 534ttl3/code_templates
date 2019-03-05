@@ -1,0 +1,134 @@
+\documentclass[twoside, 11pt, headsepline, DIV=15, BCOR=20mm, listof=totoc, listof=leveldown, captions=tableheading]{scrreprt}
+
+% my own package, mythesis.sty,
+% has options: bibfilename, graphicspath, listingspath
+\usepackage{mythesis}  
+
+\begin{filecontents}{titlepage.tex}
+
+%{{{ titlepage
+
+\begin{titlepage}
+
+\begin{figure}[htbp]
+	\centering
+        \includegraphics[width=3cm]{example-grid-100x100pt}
+	\label{fig:Logo}
+\end{figure}
+
+\vspace{3mm}
+
+\begin{center}
+\large{Fakultät für } \\
+\large{Institut für } \\
+\large{Institut für }
+
+% \large{} Addresse
+
+\vspace{20mm}
+\LARGE{
+Bachelor/Masterarbeit \\}
+\vspace{8mm}
+\Huge \textbf{\LaTeX Vorlage für Bachelor/Masterarbeit}\\
+\vspace{15mm}
+\large{
+von \\}
+%\vspace{2cm}
+\Large{ 
+\textbf{Max Mustermann\\}}
+%(cand. el.)\\
+\vspace{7mm}
+\large{am\\ 
+\today \\
+\vspace{8mm}
+
+\begin{tabular}{rl}
+Erstgutachter: & Prof. Dr. \\
+Zweitgutachter: & Dr. \\
+Betreuender Mitarbeiter: & M.Sc. \\
+\end{tabular}
+}
+
+\end{center}
+\normalsize
+ \vfill
+
+
+%\makebox[\textwidth][c]{
+%\customsignature{(Max Mustermann)}
+%\hspace{1cm}
+%\customsignature{(Prof. Dr. )}
+%\par
+%}
+
+\end{titlepage}  
+
+ %}}}
+
+\end{filecontents}
+
+
+\begin{filecontents}{explanation.tex}
+
+%{{{ explanation of originality
+\thispagestyle{empty}
+ 
+\vspace*{3cm}
+\noindent{\textbf{\Large Erklärung} \\\\
+Ich versichere wahrheitsgemäß, ... 
+ 
+\textbf{Musterstadt, den \today}\\
+\vspace*{2cm}\\
+\customsignature{(Max Mustermann)}
+\cleardoublepage
+
+%}}}
+
+\end{filecontents}
+
+
+\begin{filecontents}{glossaries.tex}
+
+%{{{ glossaries
+ 
+\thispagestyle{empty}
+ 
+\listoffigures 
+\listoftables
+\printglossary[type=\acronymtype, title={Abkürzungsverzeichnis}] 
+\printglossary[type=symbolslist]
+
+\newpage
+
+% \newglossaryentry{A}{name={letter A}, description={Long text}, type=\acronymtype}
+% \newglossaryentry{Pi}{name=$\pi$, description={Die Kreiszahl.}, type=symbolslist}
+% \gls{Pi}
+% \gls{A}
+
+%}}}
+
+\end{filecontents}
+
+\begin{document}
+
+\input{titlepage}
+\input{explanation} 
+
+\tableofcontents
+
+\input{glossaries}
+
+\clearpage
+
+\include{chapters/introduction}
+\include{chapters/theory}
+\include{chapters/methods}
+\include{chapters/results}
+\include{chapters/conclusion}
+
+\appendix  % the following 'chapters' are appendices
+\include{chapters/appendix}
+
+\printbibliography
+
+\end{document}

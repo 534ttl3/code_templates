@@ -1,0 +1,40 @@
+!whole/graphics/*
+# *.bib
+# *.gitignore
+# *.ipynb
+# *.page
+# *.tex
+whole/indices.tex
+.ipynb_checkpoints/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.idx
+*.log
+*.out
+*.pack
+*main.pdf
+*.png
+*.sample
+*.toc
+*.xml
+# auto-generated glossaries files
+*.acr
+*.alg
+*.glg
+*.gls
+*.slg
+*.syi
+*.acn
+*.lof
+*.lot
+*.syg
+*.ist
+*.glo
+*.glsdefs
+
+
+whole/listings/dlw

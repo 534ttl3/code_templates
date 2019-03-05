@@ -1,0 +1,26 @@
+\documentclass{article} % say
+\usepackage{tikz,pgf}
+\usepackage{leadsheets}
+\newcommand{\cc}[4]{
+\ensuremath{
+\stackrel{\strut
+\stackrel{\strut
+\stackrel{\strut
+\stackrel{\strut
+}{\strut
+\hbox{{\scriptsize\textbf{#4}}}
+}
+}{\strut
+\hbox{\writechord{#3}}
+}
+}{\strut
+\hbox{\scriptsize{#2}}
+}
+}{\strut\textrm{#1}}
+}%
+}
+
+\pagenumbering{gobble}
+\begin{document}
+\cc{}{}{}{I$\equiv$A major} {\Huge } \cc{Spin}{1-7 9-3-5}{Amaj9}{I} me \cc{round}{1-5 9-3}{Eadd9}{V} \cc{again}{1-\flat7 \flat3-5-9}{F\sharp-7(9)}{VI} and \cc{rub}{1-5 3-7-9}{Dadd9}{IV} \cc{my eyes}{1-7 9-3-5}{Amaj9}{I}.
+\end{document}

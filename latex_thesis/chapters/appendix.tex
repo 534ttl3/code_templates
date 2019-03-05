@@ -1,0 +1,11 @@
+\renewcommand*\chapterheadstartvskip{\vspace*{-2.5cm}}
+\chapter{Anhang}
+Die \texttt{chapter}-Überschrift wird hier manuell nach oben verschoben, sodass z.B. direkt darunter die große \cref{fig:twopgffiles} direkt eingefügt werden kann, ohne auf die nächste Seite verschoben zu werden.
+\begin{figure}[!h]
+\vspace*{-0.0cm}%
+  \makebox[\textwidth][c]{(a)\input{graphics/one.pgf}}\\
+  \makebox[\textwidth][c]{(b)\input{graphics/two.pgf}}\\
+    \caption[Zwei \texttt{pgf}-Dateien untereinander eingefügt]{Zwei \texttt{pgf}-Dateien untereinander eingefügt}
+\label{fig:twopgffiles}
+\end{figure}
+

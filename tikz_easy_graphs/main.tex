@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[top=2cm, left=2cm, right=2cm, bottom=2cm]{geometry}
+
+\usepackage{tikz}
+\usepackage{varwidth}
+\usetikzlibrary{graphs,graphdrawing,
+graphdrawing.force,graphdrawing.layered}
+%\usegdlibrary{force}
+
+\def\annot#1{node[above, sloped] {#1}}
+\begin{document}
+
+\section*{Tikz graph drawing with automatic layout}
+\subsection*{Force-directed graph drawing, \textit{spring layout}}
+\tikz [spring layout, node distance=1in] {
+\node (a) {Hello};
+\node (b) {World};
+\node (c) {$ c^2 $};
+\node (d) {$ \delta $};
+\node (e) [draw, text width=3cm] {Using fixed width minipage};
+\node (f) [draw, align=left] {\begin{varwidth}{5cm} using varwidth package \end{varwidth}};
+
+\graph {
+    (a) -- (c);
+    (b) -- (c);
+    (b) -- (d);
+    (b) -> (e);
+    (e) -> (f);
+}
+}
+
+% ---------------
+
+\subsection*{Layered graph drawing, \textit{layered layout}}
+
+\tikz [layered layout, layer distance=3cm, 
+every edge/.append style={every node/.style={sloped, above}}] {
+\node (a) {Hello};
+\node (b) {World};
+\node (c) {$ c^2 $};
+\node (d) [yshift=2cm] {$ \delta $};
+\node (e) [draw, fill=white, opacity=0.7] {\begin{varwidth}{5cm} \narrowragged This is a demonstration of how line breaks work with more words $$ \frac{\mathrm{d}\langle O \rangle}{\mathrm{d}t} = \langle [H, O]\rangle + \partial_t O $$ and an equation. \end{varwidth}};
+\node (f) {Fellow};
+
+\draw 
+(a) edge[->] node {Hey} (b) 
+(a) edge[->] node {my dear} (f)
+(b) edge[->, out=0, in=60] (f)
+(b) edge[->] (c)
+(b) edge[->] (d)
+(b) edge[--] (e)
+(e) edge[--] (f);
+}
+
+\end{document}

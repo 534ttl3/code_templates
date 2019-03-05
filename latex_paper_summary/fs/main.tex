@@ -1,0 +1,40 @@
+\documentclass[chosenlanguage=english]{chrisCustomReport}
+
+\def\mysummarytitle{}
+\def\mysummaryPaperOriginalAuthors{}
+\def\mysummaryPaperSubject{}
+
+\cfoot[]{} 
+\ihead[]{Summary} 
+\ohead[]{\enquote{\mysummarytitle}}
+
+% --- BEGIN newglossaryentry list 
+
+\newglossaryentry{kAB}{name={$k_{AB}$}, description={rate constant ...}, type=symbolslist}
+\newglossaryentry{subgraph}{name={subgraph}, description={...}}
+\newglossaryentry{PEG}{name={PEG}, description={Polyethyleneglycol}, type=\acronymtype}
+\newglossaryentry{Fig1}{name={Figure 1}, description={shows ... }, type=figureexplanationslist}
+\newglossaryentry{Mt1}{name={Insights from Master Curves}, description={Theory cuves suggest ... }, type=maintakeawayslist}
+
+% --- END newglossaryentry list 
+
+\begin{document}
+%\noindent {\underline{Metadata of the summarized paper:}} \\
+\noindent {\normalsize \textbf{Title:}\hspace*{10pt}\mysummarytitle} \\
+\noindent {\normalsize \textbf{Authors:}\hspace*{10pt}\mysummaryPaperOriginalAuthors} \\
+\noindent {\normalsize \textbf{Subject:}\hspace*{10pt}\mysummaryPaperSubject} \\
+\ \\
+Last LaTeX recompilation: \today
+
+\printTocAndGlossaries
+\glsaddall
+
+% Checklist: 
+% Main Takeaways
+% Figures
+% Symbols + Formulas
+% Glossary with Misc Terms
+
+\section*{Personal Notes}
+
+\end{document}

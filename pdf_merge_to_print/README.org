@@ -1,0 +1,7 @@
+If I have a large collection of alphabetically sorted pdf files that I want to merge into one document in that order so that when printed double-sided, each original pdf file starts on a new sheet, I use this program. 
+
+I just put the exectuable into the same folder as the pdfs and run
+#+BEGIN_SRC 
+./merge.sh
+#+END_SRC
+which creates files 0.pdf, 1.pdf, 2.pdf, 3.pdf, ... . I make sure that my original files are backed up in some other folder. 

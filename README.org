@@ -1,0 +1,1 @@
+This is a collection of project file structures I use(d) a lot and of scripts populating them. Also, sometimes I just put small utility scripts in here. 
