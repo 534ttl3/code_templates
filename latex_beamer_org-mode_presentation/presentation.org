@@ -1,0 +1,89 @@
+#+TITLE: Document title
+#+AUTHOR: John Doe
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation,11pt]
+#+LATEX_HEADER: \usefonttheme[onlymath]{serif}
+#+BEAMER_HEADER: \subtitle{Document subtitle}
+# Make it work with 
+#+BEAMER_FRAME_LEVEL: 2
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usepackage{listings}
+#+LaTeX_HEADER: \lstset{basicstyle=\scriptsize\ttfamily}
+#+OPTIONS: toc:nil
+
+* COMMENT -- beamer setup code --
+#+ATTR_LATEX: :options label={test}, fontsize={\tiny}
+#+BEGIN_SRC emacs-lisp :exports none
+  (setq org-latex-pdf-process '("latexmk -pdf -pdflatex='lualatex --shell-escape' -bibtex %f"))
+  ;; (setq org-latex-pdf-process '("latexmk -pdf -pdflatex=lualatex -bibtex %f"))
+  (setq org-latex-listings 'minted)
+  (setq org-latex-packages-alist '(("" "minted")))
+  (setq org-latex-minted-options '(("bgcolor" "bg")
+                                   ("frame" "lines")
+                                   ("fontsize" "\\scriptsize")))
+
+  (setq org-babel-python-command "python3")
+  ;; (setq org-latex-listing t)
+  (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images)
+
+  (eval-after-load "ox-latex"
+    ;; update the list of LaTeX classes and associated header (encoding, etc.)
+    ;; and structure
+    '(add-to-list
+      'org-latex-classes
+      `("beamer" ,(concat "\\documentclass[presentation]{beamer}\n"
+                          "[DEFAULT-PACKAGES]" "[PACKAGES]" "[EXTRA]\n")
+        ("\\section{%s}" . "\\section*{%s}")
+        ("\\subsection{%s}" . "\\subsection*{%s}")
+        ("\\subsubsection{%s}" . "\\subsubsection*{%s}"))))
+#+END_SRC
+
+#+RESULTS:
+| beamer | \documentclass[presentation]{beamer} |
+
+
+* Frame 1
+Some content.
+
+** Block
+This is a block.
+
+* A title
+  #+Beamer: \framesubtitle{A subtitle}
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+* few things
+** a little diagram
+#+BEGIN_EXPORT latex
+\usetikzlibrary{shapes,arrows}
+\begin{tikzpicture}[->, auto, node distance=3cm]
+  \node [draw] (A) {A};
+  \node [ellipse, draw, right of=A] (B) {B};
+  \path (A) edge node {message} (B);
+\end{tikzpicture}
+#+END_EXPORT
+** a little math
+#+BEGIN_EXPORT latex
+$$ \frac{c}{b} = \frac{1}{\frac{c}{a}} $$
+#+END_EXPORT
+$$ \frac{a}{b} = \frac{1}{\frac{b}{a}} $$
+
+* More complex 
+#+ATTR_LATEX: :options label={test}, fontsize={\small}
+#+begin_src python :results file
+import matplotlib, numpy
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+fig.tight_layout()
+plt.savefig('python-matplot-fig.png')
+#+end_src
+
+#+BEGIN_EXPORT latex
+\includegraphics[scale=0.6]{python-matplot-fig.png}
+#+END_EXPORT

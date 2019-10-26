@@ -1,0 +1,86 @@
+% Created 2019-10-26 Sa 16:04
+% Intended LaTeX compiler: pdflatex
+\documentclass[presentation,11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usefonttheme[onlymath]{serif}
+\usepackage{tikz}
+\usepackage{listings}
+\lstset{basicstyle=\scriptsize\ttfamily}
+\usetheme{default}
+\author{John Doe}
+\date{\today}
+\title{Document title}
+\subtitle{Document subtitle}
+\hypersetup{
+ pdfauthor={John Doe},
+ pdftitle={Document title},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 25.2.2 (Org mode 9.1.14)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+
+\begin{frame}[label={sec:org9a63710}]{Frame 1}
+Some content.
+
+\begin{block}{Block}
+This is a block.
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org36da312}]{A title}
+\framesubtitle{A subtitle}
+\begin{itemize}
+\item Bullet 1
+\item Bullet 2
+\item Bullet 3
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:org95ee54a}]{few things}
+\begin{block}{a little diagram}
+\usetikzlibrary{shapes,arrows}
+\begin{tikzpicture}[->, auto, node distance=3cm]
+  \node [draw] (A) {A};
+  \node [ellipse, draw, right of=A] (B) {B};
+  \path (A) edge node {message} (B);
+\end{tikzpicture}
+\end{block}
+\begin{block}{a little math}
+$$ \frac{c}{b} = \frac{1}{\frac{c}{a}} $$
+$$ \frac{a}{b} = \frac{1}{\frac{b}{a}} $$
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:org206f22a}]{a little code}
+\end{frame}
+\begin{frame}[fragile,label={sec:orgeba05e6}]{More complex}
+ \begin{minted}[bgcolor=bg,frame=lines,fontsize=\scriptsize,label={test}, fontsize={\small}]{python}
+import matplotlib, numpy
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+fig=plt.figure(figsize=(4,2))
+x=numpy.linspace(-15,15)
+plt.plot(numpy.sin(x)/x)
+fig.tight_layout()
+plt.savefig('python-matplot-fig.png')
+\end{minted}
+
+\includegraphics[scale=0.6]{python-matplot-fig.png}
+\end{frame}
+\end{document}
