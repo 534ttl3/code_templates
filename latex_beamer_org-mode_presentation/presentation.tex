@@ -1,4 +1,4 @@
-% Created 2019-10-26 Sa 16:04
+% Created 2019-10-27 So 02:29
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation,11pt]{beamer}
 \usepackage[utf8]{inputenc}
@@ -19,6 +19,7 @@
 \usepackage{tikz}
 \usepackage{listings}
 \lstset{basicstyle=\scriptsize\ttfamily}
+\usepackage{import}
 \usetheme{default}
 \author{John Doe}
 \date{\today}
@@ -29,13 +30,13 @@
  pdftitle={Document title},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 25.2.2 (Org mode 9.1.14)}, 
+ pdfcreator={Emacs 26.2 (Org mode 9.1.14)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
 
-\begin{frame}[label={sec:org9a63710}]{Frame 1}
+\begin{frame}[label={sec:org996ecfd}]{Frame 1}
 Some content.
 
 \begin{block}{Block}
@@ -43,7 +44,7 @@ This is a block.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org36da312}]{A title}
+\begin{frame}[label={sec:orgbe85fab}]{A title}
 \framesubtitle{A subtitle}
 \begin{itemize}
 \item Bullet 1
@@ -52,7 +53,7 @@ This is a block.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org95ee54a}]{few things}
+\begin{frame}[label={sec:orge92b600}]{few things}
 \begin{block}{a little diagram}
 \usetikzlibrary{shapes,arrows}
 \begin{tikzpicture}[->, auto, node distance=3cm]
@@ -67,9 +68,7 @@ $$ \frac{a}{b} = \frac{1}{\frac{b}{a}} $$
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:org206f22a}]{a little code}
-\end{frame}
-\begin{frame}[fragile,label={sec:orgeba05e6}]{More complex}
+\begin{frame}[fragile,label={sec:org0517989}]{More complex}
  \begin{minted}[bgcolor=bg,frame=lines,fontsize=\scriptsize,label={test}, fontsize={\small}]{python}
 import matplotlib, numpy
 matplotlib.use('Agg')
@@ -82,5 +81,12 @@ plt.savefig('python-matplot-fig.png')
 \end{minted}
 
 \includegraphics[scale=0.6]{python-matplot-fig.png}
+\end{frame}
+
+\begin{frame}[label={sec:org89ba736}]{Sth morepp}
+\only<1>{\includegraphics[scale=1.]{images/drawing1}}
+\only<2>{\includegraphics[scale=1.]{images/drawing2}}
+%\only<3>{\input{images/drawing3.pdf_tex}}
+\only<3>{\import{./images/}{drawing3.pdf_tex}}
 \end{frame}
 \end{document}

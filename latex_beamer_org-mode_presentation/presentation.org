@@ -10,6 +10,7 @@
 #+LATEX_HEADER: \usepackage{tikz}
 #+LATEX_HEADER: \usepackage{listings}
 #+LaTeX_HEADER: \lstset{basicstyle=\scriptsize\ttfamily}
+#+LATEX_HEADER: \usepackage{import}
 #+OPTIONS: toc:nil
 
 * COMMENT -- beamer setup code --
@@ -86,4 +87,12 @@ plt.savefig('python-matplot-fig.png')
 
 #+BEGIN_EXPORT latex
 \includegraphics[scale=0.6]{python-matplot-fig.png}
+#+END_EXPORT
+
+* Sth morepp
+#+BEGIN_EXPORT latex
+\only<1>{\includegraphics[scale=1.]{images/drawing1}}
+\only<2>{\includegraphics[scale=1.]{images/drawing2}}
+%\only<3>{\input{images/drawing3.pdf_tex}}
+\only<3>{\import{./images/}{drawing3.pdf_tex}}
 #+END_EXPORT
